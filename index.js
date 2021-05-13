@@ -1,8 +1,7 @@
 const createId = require('./create-hashid')
-const BuildReleaseId, {writeFile} = require('./webpack-build-release')
+const BuildReleaseId = require('./webpack-build-release')
+const {writeFile} = require('./webpack-build-release')
 
-module.exports = {
-    createId,
-    BuildReleaseId,
-    writeFile
-}
+exports.createId = createId
+exports.BuildReleaseId = BuildReleaseId
+exports.writeFile = writeFile
