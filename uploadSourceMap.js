@@ -59,7 +59,9 @@ if (Array.isArray(config.buildRoot)) {
 const streamList = []
 mapList.forEach(item => {
     // console.log(item, '====item===')
-    streamList.push(fs.createReadStream(item))
+    if (item.slice(-6) === 'js.map') {
+      streamList.push(fs.createReadStream(item))
+    }
 })
 
 // 批量删除文件
@@ -70,6 +72,7 @@ function removeFile(filelist) {
 }
 
 function upload() {
+    console.log(`上传sourcemap文件的地址为：${config.uploadUrl}`)
     request.post({
       url: config.uploadUrl,
       timeout: 2000,
