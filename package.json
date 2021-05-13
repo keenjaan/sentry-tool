@@ -1,7 +1,7 @@
 {
   "name": "sentry-tool",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "基于webpack打包构建上传sourcemap的工具",
   "main": "index.js",
   "bin": {
     "sentry-tool": "./bin/upload"
@@ -9,9 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "sourcemap",
+    "typescript"
+  ],
+  "author": "keenjaan",
+  "license": "MIT",
   "dependencies": {
     "request": "^2.88.2"
   }
