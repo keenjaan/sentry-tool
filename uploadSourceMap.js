@@ -84,7 +84,9 @@ function upload() {
             console.log('file upload fail')
             throw new Error(err)
         }
+        console.log('======body===', body)
         const r = JSON.parse(body)
+        console.log('========', r)
         if (body && r.code === '200') {
             console.log('upload success!')
         } else {
