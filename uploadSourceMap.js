@@ -84,7 +84,8 @@ function upload() {
       timeout: 2000,
       formData: {
           attachments: streamList,
-          release: config.release
+          release: config.release,
+          token: config.token
       }
     }, (err, res, body) => {
       // 不管成功失败，都要删除sourcemap文件
