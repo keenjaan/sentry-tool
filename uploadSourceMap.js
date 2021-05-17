@@ -72,9 +72,15 @@ function removeFile(filelist) {
 }
 
 function upload() {
-    console.log(`上传sourcemap文件的地址为：${config.uploadUrl}`)
+    console.log(`上传sourcemap文件的地址为：${config.sourceUrl}`)
+    // 没有sourcemap文件不执行以下逻辑
+    
+    if (streamList.length === 0) {
+      console.log('没有可用的sourcemap文件，确保配置是否正确')
+      return
+    }
     request.post({
-      url: config.uploadUrl,
+      url: config.sourceUrl,
       timeout: 2000,
       formData: {
           attachments: streamList,
