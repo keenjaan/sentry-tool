@@ -3,12 +3,16 @@ const path = require('path')
 // const http = require('http')
 const request = require('request')
 
+let filename = 'sentry.json'
+if (process.env.NODE_ENV === 'prod') {
+  filename = 'sentry.prod.json'
+}
 let config
 try {
-   const jsonStr = fs.readFileSync('sentry.json', 'utf8')
+   const jsonStr = fs.readFileSync(filename, 'utf8')
    config = JSON.parse(jsonStr)
 } catch(err) {
-    console.log('warn: you need sentry.json file in root, and it\'s object')
+    console.log(`warn: you need ${filename} file in root, and it's object`)
     throw new Error(err)
 }
 
