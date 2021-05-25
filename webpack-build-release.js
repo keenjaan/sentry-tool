@@ -2,13 +2,17 @@ const path = require('path')
 const fs = require('fs')
 
  function writeFile (release) {
-  const dist = path.join(process.cwd(), './sentry.json')
+  let filename = 'sentry.json'
+  if (process.env.BUILD_ENV === 'prod') {
+    filename = 'sentry.prod.json'
+  }
+  const dist = path.join(process.cwd(), `./${filename}`)
   let config
   try {
     const jsonStr = fs.readFileSync(dist, 'utf8')
     config = JSON.parse(jsonStr)
   } catch(err) {
-    // console.log(`warn: you need sentry.json file in ${dist} is not exsit!`)
+    console.log(`warn: you need ${filename} file in ${dist} is not exsit!`)
     throw new Error(err)
   }
   config.release = release

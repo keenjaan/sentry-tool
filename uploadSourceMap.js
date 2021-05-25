@@ -4,7 +4,7 @@ const path = require('path')
 const request = require('request')
 
 let filename = 'sentry.json'
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.BUILD_ENV === 'prod') {
   filename = 'sentry.prod.json'
 }
 let config
