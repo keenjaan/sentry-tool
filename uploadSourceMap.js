@@ -85,6 +85,10 @@ function upload() {
     }
     request.post({
       url: config.sourceUrl,
+      headers: {
+        "User-Agent": "request/2.85.1",
+        "Accept": "*/*"
+      },
       timeout: 2000,
       formData: {
           attachments: streamList,
