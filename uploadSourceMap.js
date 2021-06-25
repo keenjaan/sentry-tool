@@ -89,7 +89,7 @@ function upload() {
         "User-Agent": "request/2.85.1",
         "Accept": "*/*"
       },
-      timeout: 2000,
+      timeout: 20000,
       formData: {
           attachments: streamList,
           release: config.release,
